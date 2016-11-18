@@ -5,6 +5,7 @@
  */
 package br.gov.frameworkdemoiselle.certificate.example.rest;
 
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,30 +22,27 @@ import br.gov.frameworkdemoiselle.certificate.example.token.TokenManager;
 
 @Path("token")
 public class TokenREST {
+  private static final Logger LOGGER = Logger.getLogger(TokenREST.class.getName());
 
-	private static final Logger LOGGER = Logger.getLogger(TokenREST.class.getName());
-	
-    @GET
-    @Path("generate/{info}")
-    @Produces("text/plain")
-    public String generate(@PathParam("info") String info) {
-    	
-    	Map<String, String> files = Collections.synchronizedMap(new HashMap<String, String>());
-    	for (String nameFiles : info.split(",")) {
-			files.put(nameFiles, null);
-		}
-    	
-    	String token = TokenManager.put(files);
-    	LOGGER.log(Level.INFO, "Token Criado: " + token);
-        return token;
+  @GET
+  @Path("generate/{info}")
+  @Produces("text/plain")
+  public String generate(@PathParam("info") String info) {
+    Map<String, String> files = Collections.synchronizedMap(new HashMap<String, String>());
+    for (String nameFiles : info.split(",")) {
+      files.put(nameFiles, null);
     }
-    
-    @GET
-    @Path("validate/{info}")
-    @Produces("text/plain")
-    public boolean validate(@PathParam("info") String info) {
-    	LOGGER.log(Level.INFO, "Validar token: " + info);
-        return TokenManager.isValid(info);
-    }
-    
+
+    String token = TokenManager.put(files);
+    LOGGER.log(Level.INFO, "Token Criado: " + token);
+    return token;
+  }
+
+  @GET
+  @Path("validate/{info}")
+  @Produces("text/plain")
+  public boolean validate(@PathParam("info") String info) {
+    LOGGER.log(Level.INFO, "Validar token: " + info);
+    return TokenManager.isValid(info);
+  }
 }

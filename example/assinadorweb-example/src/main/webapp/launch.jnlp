@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<jnlp
-    spec="1.0+"
-    codebase="/home/01534562567/workspace/assinadorweb/desktop/target/jnlp"
-    href="launch.jnlp">
+<jnlp spec="1.0+" codebase="/home/01534562567/workspace/assinadorweb/desktop/target/jnlp" href="launch.jnlp">
   <information>
     <title>assinadorweb-desktop</title>
     <vendor>SERPRO - Serviço Federal de Processamento de Dados</vendor>
@@ -10,11 +7,10 @@
     <description>Certificate Desktop Component</description>
   </information>
   <security>
-     <all-permissions/>
+    <all-permissions/>
   </security>
   <resources>
     <j2se version="1.5+"/>
-         
     <jar href="assinadorweb-desktop-1.0.0-Beta1-SNAPSHOT.jar"/>
     <jar href="demoiselle-certificate-desktop-1.1.0-SNAPSHOT.jar" main="true"/>
     <jar href="demoiselle-certificate-core-1.1.0-SNAPSHOT.jar"/>
@@ -23,9 +19,6 @@
     <jar href="demoiselle-certificate-signer-1.1.0-SNAPSHOT.jar"/>
     <jar href="demoiselle-certificate-criptography-1.1.0-SNAPSHOT.jar"/>
     <jar href="demoiselle-certificate-ca-icpbrasil-1.1.0-SNAPSHOT.jar"/>
-
-     
   </resources>
   <application-desc main-class="br.gov.frameworkdemoiselle.certificate.ui.view.Principal"/>
 </jnlp>
-
